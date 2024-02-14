@@ -1,3 +1,4 @@
+-- Active: 1707764852259@@127.0.0.1@5432@jobs_plooral
 -- Creating ENUM types to store position status
 create type job_status as enum ('draft', 'published', 'archived', 'rejected');
 
@@ -29,3 +30,7 @@ create index on jobs(status);
 insert into companies (name) values ('ABC Corp');
 insert into companies (name) values ('XYZ LLC');
 insert into companies (name) values ('ACME Enterprises');
+
+select * from companies;
+
+select * from jobs;
