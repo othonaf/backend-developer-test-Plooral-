@@ -29,5 +29,5 @@ app.use('/api', deleteJob);
 // ROTA PARA O ENDPOINT PARA ARQUIVAR UM ANÚNCIO (JOB):
 app.use('/api', archiveJobs);
 
-// ROTA PARA O ENDPOINT PARA ARQUIVAR UM ANÚNCIO (JOB):
+// ROTA PARA O ENDPOINT DE BUSCAR ANÚNCIOS DO S3 (AWS):
 app.use('/api', feedJobs);

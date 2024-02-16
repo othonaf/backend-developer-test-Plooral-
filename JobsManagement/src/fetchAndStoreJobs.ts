@@ -34,7 +34,7 @@ exports.handler = async (event: AWSLambda.APIGatewayEvent): Promise<AWSLambda.AP
 
         const publishedJobs = jobs.filter(job => job.status === 'published');
         const params: AWS.S3.PutObjectRequest = {
-            Bucket: '***MEU_BUCKET', 
+            Bucket: 'teste-plooral-othon', 
             Key: 'publishedJobs.json', 
             Body: JSON.stringify(publishedJobs)
         };

@@ -8,7 +8,7 @@ const sqs = new AWS.SQS();
 
 router.put('/job/:job_id/publish', async (req: Request, res: Response) => {
     const { job_id } = req.params;
-    const status = "draft"; 
+    const status = "draft";
 
     try {
         // Verificar se o Id existe no banco de dados:
@@ -17,15 +17,15 @@ router.put('/job/:job_id/publish', async (req: Request, res: Response) => {
             return res.status(400).send("Anúncio não encontrado.");
         }
 
-        await connection('jobs').update({status}).where({ id: job_id });
+        await connection('jobs').update({ status }).where({ id: job_id });
 
         // Adicionando o trabalho à fila do AWS SQS:
         const params = {
             MessageBody: JSON.stringify({ job_id }),
-            QueueUrl: 'URL_DA_SUA_FILA' // substituir
+            QueueUrl: 'https://sqs.us-east-1.amazonaws.com/043735963428/TestePlooralOthon'
         };
 
-        sqs.sendMessage(params, function(err, data) {
+        sqs.sendMessage(params, function (err, data) {
             if (err) {
                 console.log("Erro", err);
                 res.status(500).send("Erro ao adicionar o trabalho à fila.");

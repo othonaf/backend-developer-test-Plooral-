@@ -8,7 +8,7 @@ const s3 = new AWS.S3();
 
 router.get('/feed', async (req: Request, res: Response) => {
     const params = {
-        Bucket: '***MEU_BUCKET',
+        Bucket: 'teste-plooral-othon',
         Key: 'publishedJobs.json' 
     };
 
