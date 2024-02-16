@@ -16,10 +16,9 @@ The challenge consisted of this:
 
 1. Discuss scalability solutions for the job moderation feature under high load conditions. Consider that over time the system usage grows significantly, to the point where we will have thousands of jobs published every hour. Consider the API will be able to handle the requests, but the serverless component will be overwhelmed with requests to moderate the jobs. This will affect the database connections and calls to the OpenAI API. How would you handle those issues and what solutions would you implement to mitigate the issues?
 
-    **Answer:**:
+    **Answer:**
          - Scalability is a point that really requires a lot of attention in any application. Regarding these issues raised, we have two considerations to think about:
         1. We can use SQS message queue to avoid overloading the serverless component with moderation requests.
-
         2. To reduce the load on the database we can use the AWS elasticache service which implements a database cache. It would help reduce latency and improve performance when accessing frequently used data.
         There are other alternatives in the AWS context, but for now these would be useful.
 
