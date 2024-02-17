@@ -8,7 +8,7 @@ Furthermore, the test required me to create an AWS lambda function that queries 
 
 The project consists of eight endpoints that are in separate files for better organization and readability, they are called through the ExpressJS "router" feature in the 'index.ts' file. In addition to these, in the "src" folder I also have the files "app.ts" (which contains the server settings), "connection.ts" (which contains the connection settings to the PostgreSQL database) and "fetchAndStore.ts " (which contains the code to be used in the lambda function in AWS).
 
-This test was particularly challenging because as an optional (not required) feature, I was required to use OpenAI's free moderation tool to assess whether posts contained harmful content.
+This test was particularly challenging because as an optional (not required) feature, I was challenged to use OpenAI's free moderation tool to assess whether posts contained harmful content.
 The challenge consisted of this:
 **"Every time a user requests a job post (PUT /job/:job_id/publish), the API must successfully respond to the user, but the job must not be published immediately. It must be queued using AWS SQS, feeding the job to a Lambda component. Using OpenAI's free moderation API, create a Lambda component that will evaluate the job title and description and test the hamrful content. If the content passes the evaluation, the component should change status from work to published, otherwise change it to rejected and add the OpenAI API response to the notes column."**
 
