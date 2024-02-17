@@ -31,7 +31,7 @@ The challenge consisted of this:
 
 1. You can clone (or fork) this repository and get the project by a 'git pull' command.
 2. Install the necessary libs for the project (axios, express, aws-sdk); I always use 'npm install'.
-3. You can run the project using the command 'npm run start' to validate this project and test in a client 'http' tool like 'Postman'. This project is configured to run on localhost port '3003'.
+3. You can run the project using the command 'npm run start' (It must be done inside the folder "JobsManagement") to validate this project and test in a client 'http' tool like 'Postman'. This project is configured to run on localhost port '3003'.
 Link to Postman's documentation: https://documenter.getpostman.com/view/19721533/2sA2r81Nws 
 
 
