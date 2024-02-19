@@ -7,6 +7,7 @@ import editJob from './editJob';
 import deleteJob from './deleteJob';
 import archiveJobs from './archiveJob';
 import feedJobs from './getFeedJobs';
+import serverless from "serverless-http";
 
  // ROTA PARA O ENDPOINT DE LISTAR TODAS AS EMPRESAS:
 app.use('/api', allCompanies)
@@ -31,3 +32,5 @@ app.use('/api', archiveJobs);
 
 // ROTA PARA O ENDPOINT DE BUSCAR ANÚNCIOS DO S3 (AWS):
 app.use('/api', feedJobs);
+
+module.exports.handler = serverless(app);
