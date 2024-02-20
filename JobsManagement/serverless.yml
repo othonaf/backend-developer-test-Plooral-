@@ -2,16 +2,29 @@ service: jobs-management
 
 provider:
   name: aws
-  runtime: nodejs20.x
+  runtime: nodejs14.x
   region: us-east-1
   environment:
     OPENAI_API_KEY: ${env:OPENAI_API_KEY}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - s3:GetObject
+            - s3:PutObject
+          Resource: 
+            - arn:aws:s3:::teste-plooral-othon/*
+        - Effect: Allow
+          Action:
+            - sqs:SendMessage
+            - sqs:ReceiveMessage
+            - sqs:DeleteMessage
+          Resource: 
+            - arn:aws:sqs:us-east-1:043735963428:TestePlooralOthon
 
 functions:
   fetchAndStoreJobs:
-    handler: src/fetchAndStoreJobs.ts
+    handler: src/fetchAndStoreJobs.handler
     events:
       - schedule: rate(1 hour)
-
-plugins:
-  - serverless-offline
