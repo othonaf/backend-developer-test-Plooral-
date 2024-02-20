@@ -14,6 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const aws_sdk_1 = __importDefault(require("aws-sdk"));
+aws_sdk_1.default.config.update({
+    region: 'us-east-1'
+});
 const router = express_1.default.Router();
 const s3 = new aws_sdk_1.default.S3();
 router.get('/feed', (req, res) => __awaiter(void 0, void 0, void 0, function* () {

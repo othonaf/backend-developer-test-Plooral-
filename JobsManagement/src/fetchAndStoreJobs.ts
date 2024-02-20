@@ -2,6 +2,9 @@ import AWS from 'aws-sdk';
 import connection from './connection';
 import axios from 'axios';
 
+AWS.config.update({
+    region: 'us-east-1'
+});
 const s3 = new AWS.S3();
 
 exports.handler = async (event: AWSLambda.APIGatewayEvent): Promise<AWSLambda.APIGatewayProxyResult> => {

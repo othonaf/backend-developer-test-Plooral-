@@ -15,6 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const connection_1 = __importDefault(require("./connection"));
 const aws_sdk_1 = __importDefault(require("aws-sdk"));
+aws_sdk_1.default.config.update({
+    region: 'us-east-1'
+});
 const router = express_1.default.Router();
 const sqs = new aws_sdk_1.default.SQS();
 router.put('/job/:job_id/publish', (req, res) => __awaiter(void 0, void 0, void 0, function* () {

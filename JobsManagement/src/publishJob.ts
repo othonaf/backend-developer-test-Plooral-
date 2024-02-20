@@ -3,6 +3,9 @@ import connection from "./connection";
 import { Request, Response } from 'express';
 import AWS from 'aws-sdk';
 
+AWS.config.update({
+    region: 'us-east-1'
+});
 const router = express.Router();
 const sqs = new AWS.SQS();
 

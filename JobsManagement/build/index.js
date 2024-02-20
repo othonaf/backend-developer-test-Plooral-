@@ -12,6 +12,7 @@ const editJob_1 = __importDefault(require("./editJob"));
 const deleteJob_1 = __importDefault(require("./deleteJob"));
 const archiveJob_1 = __importDefault(require("./archiveJob"));
 const getFeedJobs_1 = __importDefault(require("./getFeedJobs"));
+const serverless_http_1 = __importDefault(require("serverless-http"));
 // ROTA PARA O ENDPOINT DE LISTAR TODAS AS EMPRESAS:
 app_1.default.use('/api', selectAllCompanies_1.default);
 // ROTA PARA O ENDPOINT DE SELECIONAR EMPRESA POR ID:
@@ -28,3 +29,4 @@ app_1.default.use('/api', deleteJob_1.default);
 app_1.default.use('/api', archiveJob_1.default);
 // ROTA PARA O ENDPOINT DE BUSCAR ANÚNCIOS DO S3 (AWS):
 app_1.default.use('/api', getFeedJobs_1.default);
+module.exports.handler = (0, serverless_http_1.default)(app_1.default);

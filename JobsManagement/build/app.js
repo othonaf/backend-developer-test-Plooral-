@@ -8,13 +8,14 @@ const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
-const server = app.listen(process.env.PORT || 3003, () => {
-    if (server) {
-        const address = server.address();
-        console.log(`O servidor está rodando na porta ${address.address}:${address.port}`);
-    }
-    else {
-        console.error(`Falha ao iniciar o Servidor.`);
-    }
-});
+
+// ABAIXO SEGUE O CÓDIGO PARA TESTAR O SERVIDOR LOCALMENTE, BASTA DESCOMENTAR (Ctrl + ;):
+// const server = app.listen(process.env.PORT || 3003, () => {
+//   if (server) {
+//     const address = server.address();
+//     console.log(`O servidor está rodando na porta ${address.address}:${address.port}`);
+//   } else {
+//     console.error(`Falha ao iniciar o Servidor.`);
+//   }
+// });
 exports.default = app;

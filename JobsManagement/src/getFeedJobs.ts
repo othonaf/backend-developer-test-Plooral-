@@ -3,6 +3,9 @@ import { Request, Response } from 'express';
 import AWS, { AWSError } from 'aws-sdk';
 import { PromiseResult } from 'aws-sdk/lib/request';
 
+AWS.config.update({
+    region: 'us-east-1'
+});
 const router = express.Router();
 const s3 = new AWS.S3();
 

@@ -15,6 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const aws_sdk_1 = __importDefault(require("aws-sdk"));
 const connection_1 = __importDefault(require("./connection"));
 const axios_1 = __importDefault(require("axios"));
+aws_sdk_1.default.config.update({
+    region: 'us-east-1'
+});
 const s3 = new aws_sdk_1.default.S3();
 exports.handler = (event) => __awaiter(void 0, void 0, void 0, function* () {
     try {
